@@ -10,14 +10,14 @@ import errorMiddleware from "./middlewares/error.middleware.js";
 config();
 
 const app = Express();
-app.use(Express.json());
-app.use(Express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: [process.env.FRONTEND_URL],
     credentials: true,
   })
 );
+app.use(Express.json());
+app.use(Express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(morgan("dev"));
 app.use("/ping", (req, res) => {

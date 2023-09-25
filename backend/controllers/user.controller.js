@@ -26,7 +26,7 @@ const register = async (req, res, next) => {
     fullName,
     email,
     password,
-    avtar: {
+    avatar: {
       public_id: email,
       secure_url: "#",
     },
@@ -49,15 +49,15 @@ const register = async (req, res, next) => {
       });
 
       if (result) {
-        user.avtar.public_id = (await result).public_id;
-        user.avtar.secure_url = (await result).secure_url;
+        user.avatar.public_id = (await result).public_id;
+        user.avatar.secure_url = (await result).secure_url;
 
         // remove file
         fs.rm(`uploads/${req.file.filename}`);
       }
     } catch (e) {
       return next(
-        new AppError(e || "File not uploaded, please try again", 500)
+        new AppError("File not uploaded, please try again", 500)
       );
     }
   }

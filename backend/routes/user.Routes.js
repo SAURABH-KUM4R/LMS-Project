@@ -15,12 +15,12 @@ import upload from "../middlewares/multer.middleware.js";
 const router = Router();
 
 router
-  .post("/register", upload.single("avtar"), register)
+  .post("/register", upload.single("avatar"), register)
   .post("change-password", isLoggedin, changePassword)
   .post("/login", login)
   .post("/forgot/password", forgotPassword)
   .post("/reset/:reset", resetPassword);
 
 router.get("/logout", logout).get("/profile", isLoggedin, getProfile);
-router.put("/update", isLoggedin, upload.single("avtar"), updateUser);
+router.put("/update", isLoggedin, upload.single("avatar"), updateUser);
 export default router;
