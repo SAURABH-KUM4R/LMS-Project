@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
 import { createAccount } from "../Redux/Sclices/AuthSlice";
+import { isEmail, isValidPassword } from "../Helpers/regexMatcher";
 
 function Signup() {
   const dispatch = useDispatch();
@@ -59,18 +60,14 @@ function Signup() {
     }
 
     if (
-      !signupData.email.match(
-        /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/
-      )
+      !isEmail(signupData.email)
     ) {
       toast.error("Invalid email ID");
       return;
     }
 
     if (
-      !signupData.password.match(
-        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/
-      )
+      !isValidPassword(signupData.password)
     ) {
       toast.error("Weak Password!");
       return;

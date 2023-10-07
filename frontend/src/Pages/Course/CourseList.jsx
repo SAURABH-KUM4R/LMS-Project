@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import CourseCard from "../../Component/CourseCard";
 //14:00
 function CourseList() {
-    const dispatch = useDispatch
+    const dispatch = useDispatch();
 
     const { courseData } = useSelector((state) => state.course);
 
@@ -26,8 +26,8 @@ function CourseList() {
                         &nbsp;Industry Experts
                     </span>
                     <div className="mb-10 flex flex-wrap gap-14">
-                        {courseData?.map((element) => {
-                            return <CourseCard key={element.id} data={element}/>
+                        {courseData?.map((element,i) => {
+                            return <CourseCard key={i} data={element}/>
                         })}                        
                     </div>
                 </h1>

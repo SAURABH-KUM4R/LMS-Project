@@ -28,7 +28,7 @@ function HomeLayout({ children }) {
   }
 
   async function handleLogout(e) {
-    // e.preventDeafult();
+    e.preventDeafult();
 
     const res = await dispatch(logout());
     if (res?.payload?.sucess) {
