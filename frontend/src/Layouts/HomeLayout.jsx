@@ -28,7 +28,7 @@ function HomeLayout({ children }) {
   }
 
   async function handleLogout(e) {
-    e.preventDeafult();
+    // e.preventDeafult();
 
     const res = await dispatch(logout());
     if (res?.payload?.sucess) {
@@ -64,6 +64,12 @@ function HomeLayout({ children }) {
             {isLoggedIn && role === "ADMIN" && (
               <li>
                 <Link to="/admin/dashboard"> Admin Dashboard</Link>
+              </li>
+            )}
+  
+            {isLoggedIn && role === "ADMIN" && (
+              <li>
+                <Link to="/courses/create"> Create New Course</Link>
               </li>
             )}
 
