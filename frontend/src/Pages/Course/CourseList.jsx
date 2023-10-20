@@ -3,6 +3,7 @@ import { getAllCourses } from "../../Redux/Sclices/CourseSlice";
 import HomeLayout from "../../Layouts/HomeLayout";
 import { useSelector, useDispatch } from "react-redux";
 import CourseCard from "../../Component/CourseCard";
+
 //14:00
 function CourseList() {
     const dispatch = useDispatch();
@@ -27,7 +28,7 @@ function CourseList() {
                     </span>
                     <div className="mb-10 flex flex-wrap gap-14">
                         {courseData?.map((element,i) => {
-                            return <CourseCard key={i} data={element}/>
+                            return <CourseCard key={i} data={element} />
                         })}                        
                     </div>
                 </h1>
